@@ -30,7 +30,7 @@ namespace bootcamp_store.Service
         {
             var client = new HttpClient(_handler, false);
             _logger.LogDebug("Processing rest api call to get products");
-            var result = await client.GetAsync("https://core-cf-microservice-martez/api/products");
+            var result = await client.GetAsync("https://dotnet-core-api/api/products");
             var products = await result.Content.ReadAsAsync<string[]>();
             
             foreach (var product in products)

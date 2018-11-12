@@ -23,7 +23,7 @@ namespace bootcamp_store.Controllers
         public async Task<IActionResult> Index()
         {
             var client = new HttpClient(handler, false);
-            var result = await client.GetAsync("https://core-cf-microservice-martez/api/products");
+            var result = await client.GetAsync("https://dotnet-core-api/api/products");
             var products = await result.Content.ReadAsAsync<string[]>();
             ViewData["products"] = products;
             foreach (var product in products)
