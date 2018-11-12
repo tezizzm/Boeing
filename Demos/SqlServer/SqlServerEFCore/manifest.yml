@@ -1,0 +1,10 @@
+﻿---
+applications:
+- name: martezsqlserverefcoreconnector
+  buildpack: dotnet_core_buildpack
+  path: .\publish
+  memory: 256M
+  env:
+    ASPNETCORE_ENVIRONMENT: Development
+  services:
+   - mySqlServerService
