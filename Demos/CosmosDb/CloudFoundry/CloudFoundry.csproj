@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
-    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.0-dev-00228" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.1" />
   </ItemGroup>
   
   <ItemGroup>
