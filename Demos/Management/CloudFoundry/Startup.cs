@@ -23,9 +23,6 @@ namespace CloudFoundry
         {
             services.AddMySqlConnection(Configuration);
 
-            // Add custom health check contributor
-            services.AddScoped<IHealthContributor, MySqlHealthContributor>();
-
             // Add managment endpoint services
             services.AddCloudFoundryActuators(Configuration);
 

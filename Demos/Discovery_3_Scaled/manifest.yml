@@ -1,7 +1,8 @@
 ﻿---
 applications:
-- name: martezFortuneService
-  path: .\Fortune-Teller-Service\publish
+- name: fortuneService
+  random-route: true  
+  path: .\Fortune-Teller-Service\
   memory: 128M
   buildpack: dotnet_core_buildpack
   env:
@@ -9,8 +10,9 @@ applications:
   services:
    - myDiscoveryService
    
-- name: martezScaledFortuneUI
-  path: \Fortune-Teller-UI\publish
+- name: scaledFortuneUI
+  random-route: true
+  path: \Fortune-Teller-UI\
   memory: 128M
   buildpack: dotnet_core_buildpack
   env:

@@ -13,8 +13,8 @@ namespace Fortune_Teller_UI.Services
     {
         DiscoveryHttpClientHandler _handler;
         ILogger<FortuneService> _logger;
-        private const string RANDOM_FORTUNE_URL = "https://martezHystrixfortuneService/api/fortunes/random";
-        private const string FORTUNES_URL = "https://fortuneService/api/fortunes";
+        private const string RANDOM_FORTUNE_URL = "https://hystrixfortuneService/api/fortunes/random";
+        private const string FORTUNES_URL = "https://hystrixfortuneService/api/fortunes";
 
         public FortuneService(IDiscoveryClient client, ILoggerFactory logFactory) 
         {

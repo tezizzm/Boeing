@@ -1,9 +1,9 @@
 ﻿---
 applications:
-- name: martezsqlserverefcoreconnector
+- name: sqlserverefcoreconnector
+  random-route: true
   buildpack: dotnet_core_buildpack
-  path: .\publish
-  memory: 256M
+  memory: 128M
   env:
     ASPNETCORE_ENVIRONMENT: Development
   services:

@@ -1,6 +1,7 @@
 ---
 applications:
-- name: martezScaledFortuneUI
+- name: scaledFortuneUI
+  random-route: true
   buildpack: dotnet_core_buildpack
   memory: 128M
   env:

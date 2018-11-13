@@ -1,7 +1,8 @@
 ---
 applications:
-- name: martezConfiguration
-  memory: 512M
+- name: Configuration
+  random-route: true
+  memory: 256M
   buildpack: dotnet_core_buildpack
   env:
     ASPNETCORE_ENVIRONMENT: development

@@ -1,6 +1,7 @@
 ﻿---
 applications:
-- name: martezHystrixfortuneService
+- name: hystrixfortuneService
+  random-route: true
   memory: 128M
   buildpack: dotnet_core_buildpack
   env:
