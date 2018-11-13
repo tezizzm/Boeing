@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +26,7 @@ namespace bootcamp_store.Controllers
             ViewData["products"] = products;
             foreach (var product in products)
             {
-                System.Console.WriteLine(product);
+                Console.WriteLine(product);
             }
             return View();
         }
