@@ -61,6 +61,8 @@ namespace bootcamp_webapi
                     document.Info.Version = "v1";
                     document.Info.Title = "Bootcamp API";
                     document.Info.Description = "A simple ASP.NET Core web API";
+                    document.Schemes.Clear();
+                    document.Schemes.Add(NSwag.SwaggerSchema.Https);
                 };
                 settings.SwaggerUiRoute = "";
             });
