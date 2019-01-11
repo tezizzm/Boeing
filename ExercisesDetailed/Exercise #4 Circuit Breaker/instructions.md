@@ -20,7 +20,7 @@ This exercise helps us understand how to wrap our external calls in Hystrix Comm
     <PackageReference Include="Steeltoe.CircuitBreaker.HystrixCore" Version="2.1.0" />
     ```
 
-2. In the root of the project create a file called ProductService.cs with the following implementation:
+2. In the root of the project create a file called ProductService.cs with the below implementation.  This class will act as an abstraction to our product retrieval from our products API.  The logic for retrieving products has been moved to our RunAsync method and there is now a method to return placeholder values from the RunFallbackAsync method in cases of failures.
 
     ```c#
         using System;
@@ -37,7 +37,7 @@ This exercise helps us understand how to wrap our external calls in Hystrix Comm
                 private readonly DiscoveryHttpClientHandler _handler;
                 private readonly ILogger<ProductService> _logger;
 
-                public ProductService(IHystrixCommandOptions options, IDiscoveryClient client, ILogger<ProductService> logger) : 
+                public ProductService(IHystrixCommandOptions options, IDiscoveryClient client, ILogger<ProductService> logger) :
                     base(options)
                 {
                     _logger = logger;
@@ -57,7 +57,7 @@ This exercise helps us understand how to wrap our external calls in Hystrix Comm
                     _logger.LogDebug("Processing rest api call to get products");
                     var result = await client.GetAsync("https://dotnet-core-api/api/products");
                     var products = await result.Content.ReadAsAsync<string[]>();
-                    
+
                     foreach (var product in products)
                     {
                         Console.WriteLine(product);
@@ -110,7 +110,7 @@ This exercise helps us understand how to wrap our external calls in Hystrix Comm
     app.UseHystrixMetricsStream();
     ```
 
-6. Navigate to the appsettings.json file and add an entry for hystrix like follows:
+6. Navigate to the appsettings.json file and add an entry for hystrix like follows.  It configures the hystrix command and tells the stream to ignore certificates.
 
     ```json
         "hystrix": {
@@ -167,7 +167,7 @@ This exercise helps us understand how to wrap our external calls in Hystrix Comm
 8. Run the following command to create an instance of the Circuit Breaker
  **note: service name and type may be different depending on platform/operator configuration**
 
-    ```
+    ```bat
     cf create-service p-circuit-breaker-dashboard standard myHystrixService
     ```
 

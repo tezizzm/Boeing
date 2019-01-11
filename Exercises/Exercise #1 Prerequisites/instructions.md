@@ -20,7 +20,7 @@ Alternatively, you can sign up for a trial account of the hosted version of PCF,
 
 3. Fill in details.
 
-4. Go to email account provided and click on veriﬁcation email link.
+4. Go to email account provided and click on verification email link.
 
 5. Click on "claim free trial" link and provide phone number.
 
@@ -28,7 +28,7 @@ Alternatively, you can sign up for a trial account of the hosted version of PCF,
 
 ## Package manager
 
-We suggest using a package manager to install bootcamp software.  Alternatively use the lastest release for your given operating system found at: <https://github.com/cloudfoundry/cli/releases>
+We suggest using a package manager to install bootcamp software.  Alternatively use the latest release for your given operating system found at: <https://github.com/cloudfoundry/cli/releases>
 
 - MacOS: Homebrew\
  ( brew search PACKAGE to search)
@@ -73,7 +73,7 @@ You can interact with Cloud Foundry via Dashboard, REST API, or command line int
     sudo yum install cf-cli
     ```
 
-Conﬁrm that it installed successfully by going to a command line, and typing:
+Confirm that it installed successfully by going to a command line, and typing:
 
 ```Windows
     cf -v
@@ -87,7 +87,7 @@ Conﬁrm that it installed successfully by going to a command line, and typing:
 
     ***.NET Core Version 2.1.x is required for this workshop***
 
-2. Conﬁrm that it installed correctly by opening a command line and typing:
+2. Confirm that it installed correctly by opening a command line and typing:
 
     ```Windows
     dotnet --version

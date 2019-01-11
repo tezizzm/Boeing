@@ -24,19 +24,19 @@ This exercise helps us understand how to register our microservices with the Spr
     using Pivotal.Discovery.Client;
     ```
 
-3. In the ConfigureServices method use an extension method to add the discovery client to the DI Container with the following line of code.
+3. In the ConfigureServices method use an extension method to add the discovery client to the DI Container with the following line of code.  This extension methods adds the Discovery Services to the service container.
 
     ```c#
     services.AddDiscoveryClient(Configuration);
     ```
 
-4. In the Configure method add the discovery client to the middleware pipeline by adding the following code snippet
+4. In the Configure method add the discovery client to the middleware pipeline by adding the following code snippet.  This code configures the pipeline for the discovery client.
 
     ```c#
     app.UseDiscoveryClient();
     ```
 
-5. In the root directory navigate to the appsettings.json file and add an entry for eureka like follows:
+5. In the root directory navigate to the appsettings.json file and add an entry for eureka like the below snippet.  These settings tell Eureka to register our service instance with the Eureka Server
 
     ```json
     "eureka": {
@@ -49,12 +49,12 @@ This exercise helps us understand how to register our microservices with the Spr
 
 6. Run the following command to create an instance of Service Discovery **note: service name and type may be different depending on platform/operator configuration**
 
-    ```
+    ```bat
     cf create-service p-service-registry standard myDiscoveryService
     ```
 
 7. Navigate to the manifest.yml file and in the services section add an entry to bind the application to the newly created instance of the Service Discovery Service.
-    
+
     ```yml
         - myDiscoveryService
     ```
@@ -69,7 +69,7 @@ We now change focus to a front end application that discovers our products API m
 
 2. Navigate to the newly created directory using the following command: `cd bootcamp-store`
 
-3. Use the Dotnet CLI to scaffold a basic MVC application with the following command: `dotnet new mvc`.  This will create a new application with name bootcamp-store.
+3. Use the Dotnet CLI to scaffold a basic MVC application with the following command: `dotnet new mvc`.  This will create a new application with the name bootcamp-store.
 
 4. Navigate to the project file and edit it to add the following nuget packages:
 
@@ -79,7 +79,8 @@ We now change focus to a front end application that discovers our products API m
     <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.1" />
     ```
 
-5. In the Program.cs class add the following using statement and edit the CreateWebHostBuilder method in the following way
+5. In the Program.cs class add the following using statement and edit the CreateWebHostBuilder method in the following way.  Notice the extension method AddCloudFoundry.  It is used to add the [VCAP variables](https://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html) to the configuration root.
+
     ```c#
     using Steeltoe.Extensions.Configuration.CloudFoundry;
     ```
@@ -108,7 +109,7 @@ We now change focus to a front end application that discovers our products API m
     ```c#
     app.UseDiscoveryClient();
     ```
-9. Edit the HomeController.cs class.  This is where we will retrieve our products from the API.  Edit the file so it looks like the following:
+9. Edit the HomeController.cs class to retrieve our products from the API. First add the appropriate using statements to bring in namespace references.  Then notice the `DiscoveryHttpClientHandler` property.  It maps our call to a discovered service instance and then completes the service request.  Once the request is complete we log the results and pass the data on to our view for display.  In this case the view is an MVC view, you can read more about views [here](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-2.1).  Once complete the file should look like the following:
 
     ```c#
         using System;
@@ -154,7 +155,7 @@ We now change focus to a front end application that discovers our products API m
     ```
     **Take note of the url format (<https://dotnet-core-api/api/products>) of the external API call.**
 
-10. Navigate to the views folder and edit the Index.cshtml file as follows:
+10. Navigate to the views folder and edit the View file named Index.cshtml file to match the below snippet.  This file uses a mix of html and Razor syntax to iterate over and display the products returned from the Products API.  You can read about Razor Syntax [here](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-2.1)
 
     ```c#
     @{
@@ -184,7 +185,7 @@ We now change focus to a front end application that discovers our products API m
         }
     </div>
     ```
-11. In the root directory navigate to the appsettings.json file and add an entry for eureka like follows:
+11. In the root directory navigate to the appsettings.json file and add an entry for eureka like follows.  Notice since we are consuming the service we do not register with Eureka.
 
     ```json
     "eureka": {
