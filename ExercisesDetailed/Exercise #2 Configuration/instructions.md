@@ -127,7 +127,7 @@ In this exercise we explore how Configuration Server pulls configuration from a 
     ```yml
     ---
     applications:
-    - name: dotnet-core-api
+    - name: dotnet-core-api-{unique-name}
         random-route: true
         buildpack: https://github.com/cloudfoundry/dotnet-core-buildpack
         instances: 1
